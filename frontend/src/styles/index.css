@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-surface text-slate-100;
+  }
+
+  html:not(.dark) body {
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  html:not(.dark) .glass-card {
+    @apply bg-white/90 border-slate-200;
+  }
+
+  html:not(.dark) .input-field {
+    @apply bg-white border-slate-300 text-slate-900 placeholder-slate-400;
+  }
+
+  ::selection {
+    @apply bg-accent-blue/30 text-white;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-xl border border-surface-border/60 bg-surface-card/80 backdrop-blur-md;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-accent-blue to-accent-purple px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-accent-purple/20 transition-all duration-200 hover:scale-[1.02] hover:shadow-accent-purple/40 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-surface-border bg-surface-raised px-5 py-2.5 text-sm font-medium text-slate-200 transition-all duration-200 hover:border-accent-blue/50 hover:bg-surface-card;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-surface-border bg-surface-raised px-4 py-2.5 text-sm text-white placeholder-slate-500 transition-colors focus:border-accent-blue/60 focus:outline-none focus:ring-2 focus:ring-accent-blue/20;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold tracking-tight text-white sm:text-4xl;
+  }
+
+  .ai-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(59, 130, 246, 0.15) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan;
+  }
+
+  .glow-orb {
+    @apply pointer-events-none absolute rounded-full blur-3xl opacity-30;
+  }
+}
